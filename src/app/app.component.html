@@ -1,4 +1,9 @@
 
+
+<!-- ------------------------------------------------------------ -->
+<!-- Binding -->
+<!-- ------------------------------------------------------------ -->
+<h1>Binding</h1>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
@@ -17,7 +22,7 @@
       <input type="text" class="form-control" [(ngModel)]="username">
       <p>username = {{username}}</p>
       
-      <button class = "btn btn-primary" 
+      <button class = "btn btn-primary"  
       [disabled]="username ===  ''" 
       (click)="username = '' "
       > Reset user </button>
@@ -27,3 +32,38 @@
   </div>
 </div>
 
+
+<hr>
+<hr>
+
+<!-- ------------------------------------------------------------ -->
+<!-- Directives -->
+<!-- ------------------------------------------------------------ -->
+
+<h1>Directives</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+
+
+      <ol>
+        <li>Add button - "Display Details" </li>
+        <li>Add a paragraph with any content</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the secret paragraph</li>
+        <li>ngStyle / ngClass- Starting at the 5th item, give all future items a blue background </li>
+      </ol>
+      
+      <hr>
+     <button class="btn btn-primary" (click)="onToggleDisplay()">Display Details</button>
+     <p *ngIf="showSecret">secret paragraph</p>
+
+     <div *ngFor="let item of log ; let i = index"
+     [ngStyle]="{backgroundColor:i >=4 ? 'blue' : 'red'}"
+     [ngClass]="{'white-text':i>=4}">
+       {{item}}
+     </div>
+    </div>
+
+  </div>
+</div>
